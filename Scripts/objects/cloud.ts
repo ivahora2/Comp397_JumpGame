@@ -6,7 +6,7 @@ module objects {
 
         // constructors
         constructor() {
-            super("cloud");
+            super("platform");
 
             this.Start();
         }

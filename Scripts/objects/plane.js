@@ -34,16 +34,20 @@ var objects;
         Plane.prototype.Start = function () {
             this.regX = this.halfWidth;
             this.regY = this.halfHeight;
-            this.y = 275;
+            this.y = 255;
+            this.x = 300;
         };
         Plane.prototype.Update = function () {
             managers.Game.Stage.on('stagemousedown', function () {
                 console.log("jump");
-                createjs.Tween.get(objects.Plane).to({ y: 100 }, 1000, createjs.Ease.quadOut);
-                console.log(this);
-            });
-            this.x = managers.Game.Stage.mouseX;
+                createjs.Tween.get(this).to({ y: 150 }, 1000, createjs.Ease.quadOut).call(this.gravity);
+            }, this);
+            // this.x = managers.Game.Stage.mouseX;
             this._checkBounds();
+        };
+        Plane.prototype.gravity = function () {
+            console.log("in gravity");
+            createjs.Tween.get(this).to({ y: 255 }, 500, createjs.Ease.quadOut);
         };
         Plane.prototype.Reset = function () {
         };

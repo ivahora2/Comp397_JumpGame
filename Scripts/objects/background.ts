@@ -1,19 +1,19 @@
 module objects {
-    export class Island extends objects.GameObject {
+    export class Background extends createjs.Bitmap {
         // member variables
-        private _verticalSpeed:number;
+        private _horizontalSpeed:number;
 
         // constructors
         constructor() {
-            super("island");
+            super(managers.Game.AssetManager.getResult("background"));
 
             this.Start();
         }
 
         // private methods
         private _checkBounds():void {
-            // check the bottom boundary
-            if(this.y >= (config.Screen.HEIGHT + this.height)) {
+            // check the top boundary
+            if(this.x >= 0) {
                 this.Reset();
             }
 
@@ -21,20 +21,19 @@ module objects {
 
          // public methods
          public Start():void {
-             this._verticalSpeed = 5; // the island will move down 5ppf
+             this._horizontalSpeed = 5; // the ocean will move down 5ppf
 
             this.Reset();
         }
 
         public Update():void {
-            this.y += this._verticalSpeed;
+            this.x += this._horizontalSpeed;
             
             this._checkBounds();
         }
 
         public Reset():void {
-            this.x = Math.floor(Math.random() * (config.Screen.WIDTH - this.width)) + this.halfWidth;
-            this.y = -this.height;
+            this.x = -350;
         }
     }
 }

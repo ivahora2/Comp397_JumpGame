@@ -1,9 +1,9 @@
 module scenes {
     export class Play extends objects.Scene {
         // member variables
-        private _plane:objects.Plane;
-        private _ocean:objects.Ocean;
-        private _island:objects.Island;
+        public _plane:objects.Plane;
+        private _background:objects.Background;
+       
 
         private _cloudNum:number;
         private _clouds:objects.Cloud[];
@@ -28,10 +28,10 @@ module scenes {
         public Start():void {
 
             this._plane = new objects.Plane();
-            this._ocean = new objects.Ocean();
-            this._island = new objects.Island();
+            this._background = new objects.Background();
+           
 
-            this._cloudNum = 3;
+            this._cloudNum = 4;
             // create an empty Array List-like object of clouds
             this._clouds = new Array<objects.Cloud>();
             this._buildClouds();
@@ -41,10 +41,13 @@ module scenes {
 
         public Update():void {
             this._plane.Update();
-            this._ocean.Update();
-            this._island.Update();
+            this._background.Update();
+            
 
-            managers.Collision.check(this._plane, this._island);
+           
+
+
+           
 
             this._clouds.forEach(cloud => {
                 cloud.Update();
@@ -64,10 +67,9 @@ module scenes {
             console.log("Started - PLAY SCENE");
            
             // add the Ocean object to the scene
-            this.addChild(this._ocean);
+            this.addChild(this._background);
 
-            // add the Island object to the scene
-            this.addChild(this._island);
+            
 
             // add the Plane object to the scene
             this.addChild(this._plane);

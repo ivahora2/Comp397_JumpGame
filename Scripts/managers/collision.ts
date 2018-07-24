@@ -8,19 +8,21 @@ module managers {
                 if(!object2.isColliding) {
                     object2.isColliding = true;
                     switch(object2.name) {
-                        case "island":
-                        createjs.Sound.play("yay");
-                        break;
+                       
 
-                        case "cloud":
+                        case "platform":
                         createjs.Sound.play("thunder");
                         break;
                     }
                 }
             }
+            
+           
+
             else {
                 object2.isColliding = false;
             }
+           
         }
     }
 }

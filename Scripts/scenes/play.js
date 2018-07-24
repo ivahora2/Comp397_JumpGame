@@ -28,9 +28,8 @@ var scenes;
         // public methods
         Play.prototype.Start = function () {
             this._plane = new objects.Plane();
-            this._ocean = new objects.Ocean();
-            this._island = new objects.Island();
-            this._cloudNum = 3;
+            this._background = new objects.Background();
+            this._cloudNum = 4;
             // create an empty Array List-like object of clouds
             this._clouds = new Array();
             this._buildClouds();
@@ -39,9 +38,7 @@ var scenes;
         Play.prototype.Update = function () {
             var _this = this;
             this._plane.Update();
-            this._ocean.Update();
-            this._island.Update();
-            managers.Collision.check(this._plane, this._island);
+            this._background.Update();
             this._clouds.forEach(function (cloud) {
                 cloud.Update();
                 managers.Collision.check(_this._plane, cloud);
@@ -55,9 +52,7 @@ var scenes;
         Play.prototype.Main = function () {
             console.log("Started - PLAY SCENE");
             // add the Ocean object to the scene
-            this.addChild(this._ocean);
-            // add the Island object to the scene
-            this.addChild(this._island);
+            this.addChild(this._background);
             // add the Plane object to the scene
             this.addChild(this._plane);
             // add the Cloud(s) to the scene

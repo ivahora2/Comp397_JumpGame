@@ -11,10 +11,9 @@
         { id: "StartButton", src: "/Assets/images/StartButton.png" },
         { id: "NextButton", src: "/Assets/images/NextButton.png" },
         { id: "BackButton", src: "/Assets/images/BackButton.png" },
-        { id: "plane", src: "/Assets/images/plane.png" },
-        { id: "island", src: "/Assets/images/island.png" },
-        { id: "ocean", src: "/Assets/images/gameBG.jpg" },
-        { id: "cloud", src: "/Assets/images/platform-left.png" },
+        { id: "plane", src: "/Assets/images/rocket.png" },
+        { id: "background", src: "/Assets/images/background.png" },
+        { id: "platform", src: "/Assets/images/sapce_platform.jpeg" },
         { id: "yay", src: "/Assets/audio/yay.ogg" },
         { id: "thunder", src: "/Assets/audio/thunder.ogg" },
         { id: "engine", src: "/Assets/audio/engine.ogg" }

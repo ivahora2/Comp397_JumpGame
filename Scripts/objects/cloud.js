@@ -14,7 +14,7 @@ var objects;
         __extends(Cloud, _super);
         // constructors
         function Cloud() {
-            var _this = _super.call(this, "cloud") || this;
+            var _this = _super.call(this, "platform") || this;
             _this.Start();
             return _this;
         }
